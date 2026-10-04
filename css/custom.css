@@ -1,0 +1,415 @@
+/*! ------------------------------------------------
+ * Jatin Prajapati - Personal Portfolio Custom Styles
+ * Data Science Student · Aspiring AI Engineer
+ * Designed to complement Azurio theme styles
+ * ------------------------------------------------ */
+
+/* ------------------------------------------------
+ * 01. Brand & Monogram Badge (Hero Visual)
+ * ------------------------------------------------ */
+.jp-hero-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2.5rem 1.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+[data-theme="light"] .jp-hero-visual,
+.light .jp-hero-visual {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01));
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+.jp-hero-visual:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .jp-hero-visual:hover,
+.light .jp-hero-visual:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Ambient Glow in Visual */
+.jp-hero-visual__glow {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(120, 160, 255, 0.25) 0%, rgba(120, 160, 255, 0) 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+[data-theme="light"] .jp-hero-visual__glow,
+.light .jp-hero-visual__glow {
+  background: radial-gradient(circle, rgba(70, 110, 220, 0.18) 0%, rgba(70, 110, 220, 0) 70%);
+}
+
+.jp-hero-visual__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  margin-bottom: 1rem;
+  z-index: 1;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .jp-hero-visual__avatar,
+.light .jp-hero-visual__avatar {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.jp-hero-visual:hover .jp-hero-visual__avatar {
+  transform: scale(1.04);
+  border-color: rgba(120, 160, 255, 0.6);
+}
+
+.jp-hero-visual__monogram {
+  font-family: var(--font-accent, "JetBrains Mono", monospace);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: currentColor;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(120, 160, 255, 0.35);
+}
+
+.jp-hero-visual__tagline {
+  font-family: var(--font-accent, "JetBrains Mono", monospace);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+  margin-bottom: 1.25rem;
+}
+
+.jp-hero-visual__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  z-index: 1;
+}
+
+.jp-hero-visual__pill {
+  font-family: var(--font-accent, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .jp-hero-visual__pill,
+.light .jp-hero-visual__pill {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.jp-hero-visual__pill:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="light"] .jp-hero-visual__pill:hover,
+.light .jp-hero-visual__pill:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------------------
+ * 02. Learner Pillars (About Section)
+ * ------------------------------------------------ */
+.jp-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.jp-pillar-card {
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+[data-theme="light"] .jp-pillar-card,
+.light .jp-pillar-card {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.jp-pillar-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .jp-pillar-card:hover,
+.light .jp-pillar-card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.jp-pillar-card__index {
+  font-family: var(--font-accent, "JetBrains Mono", monospace);
+  font-size: 0.85rem;
+  color: rgba(120, 160, 255, 0.9);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.jp-pillar-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.jp-pillar-card__descr {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.75;
+}
+
+/* ------------------------------------------------
+ * 03. Projects Empty State
+ * ------------------------------------------------ */
+.jp-empty-state {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 1.25rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+[data-theme="light"] .jp-empty-state,
+.light .jp-empty-state {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.jp-empty-state:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="light"] .jp-empty-state:hover,
+.light .jp-empty-state:hover {
+  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.jp-empty-state__icon {
+  font-size: 2.75rem;
+  margin-bottom: 1.25rem;
+  color: rgba(120, 160, 255, 0.9);
+  display: inline-block;
+}
+
+.jp-empty-state__tag {
+  display: inline-block;
+  font-family: var(--font-accent, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(120, 160, 255, 0.12);
+  color: rgba(120, 160, 255, 1);
+  margin-bottom: 1.25rem;
+}
+
+.jp-empty-state__heading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.jp-empty-state__text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  max-width: 580px;
+  margin: 0 auto 2rem auto;
+}
+
+.jp-empty-state__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ------------------------------------------------
+ * 04. Reusable Project Card Template Styling
+ * ------------------------------------------------ */
+.jp-project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .jp-project-card,
+.light .jp-project-card {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.jp-project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .jp-project-card:hover,
+.light .jp-project-card:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+}
+
+.jp-project-card__body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.jp-project-card__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.jp-project-card__descr {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.jp-project-card__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.jp-project-card__links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+/* ------------------------------------------------
+ * 05. Connect Cards
+ * ------------------------------------------------ */
+.jp-connect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.jp-connect-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .jp-connect-card,
+.light .jp-connect-card {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.jp-connect-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .jp-connect-card:hover,
+.light .jp-connect-card:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.jp-connect-card__icon {
+  font-size: 2.25rem;
+  color: rgba(120, 160, 255, 1);
+  line-height: 1;
+}
+
+.jp-connect-card__info {
+  flex-grow: 1;
+}
+
+.jp-connect-card__label {
+  font-family: var(--font-accent, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  display: block;
+}
+
+.jp-connect-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.jp-connect-card__arrow {
+  font-size: 1.25rem;
+  opacity: 0.6;
+  transition: transform 0.3s ease;
+}
+
+.jp-connect-card:hover .jp-connect-card__arrow {
+  transform: translate(3px, -3px);
+  opacity: 1;
+}
